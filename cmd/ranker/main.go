@@ -31,7 +31,7 @@ func main() {
     }
 
     tokenInEnv := os.Getenv("APPLE_TOKEN")
-    if *token == "" || tokenInEnv == "" {
+    if *token == "" && tokenInEnv == "" {
         flag.Usage()
         return
     } else if tokenInEnv != "" {

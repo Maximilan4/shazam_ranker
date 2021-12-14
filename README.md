@@ -1,4 +1,4 @@
-##shazam ranker
+## shazam ranker
 Загружает рейтинги шазама по isrc трека
 
 ## Алгоритм
@@ -12,5 +12,5 @@
 ```bash
 go build -o ranker cmd/ranker/main.go
 
-ranker -i isrc.txt -w 2 [-o output]
+./ranker -i isrc.txt -o output -w 2
 ```
