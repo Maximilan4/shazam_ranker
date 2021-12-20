@@ -53,7 +53,7 @@ func start(inputFile, outputDir, token string, workersCount int) {
         go worker(isrcChan, rankedTracks, token)
     }
 
-    if err = output.Write2Csv(rankedTracks, outputDir); err != nil {
+    if err = output.Write2Jsonl(rankedTracks, outputDir); err != nil {
         logrus.Fatal(err)
     }
 }

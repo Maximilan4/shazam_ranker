@@ -18,7 +18,7 @@ func Write2Csv(inputChan chan *scraper.Track, outputDir string) error {
         return err
     }
 
-    file, err := createCsv(dir)
+    file, err := createFile(dir, ".csv")
     if err != nil {
         return err
     }
@@ -30,6 +30,7 @@ func Write2Csv(inputChan chan *scraper.Track, outputDir string) error {
     }
 
     defer csvWriter.Flush()
+    csvWriter.Comma = ';'
 
     for track := range inputChan {
         err = csvWriter.Write(track.CsvRow())
@@ -42,8 +43,8 @@ func Write2Csv(inputChan chan *scraper.Track, outputDir string) error {
     return nil
 }
 
-func createCsv(dir *string) (*os.File, error) {
-    return os.Create(path.Join(*dir, strconv.FormatInt(time.Now().Unix(), 10)+".csv"))
+func createFile(dir *string, extension string) (*os.File, error) {
+    return os.Create(path.Join(*dir, strconv.FormatInt(time.Now().Unix(), 10)+extension))
 }
 
 func createOutputIfNotExists(outputDir string) (*string, error) {

@@ -1,12 +1,12 @@
 ## shazam ranker
-Загружает рейтинги шазама по isrc трека
+loads shazam rating by track`s isrc
 
-## Алгоритм
-- ищем в поиске apple по isrc
-- по имени исполнителя и названию трека идем в поиск шазама
-- по поисковой выдаче шазама идем за детальной информацией трека (isrc и amid)
-- сравниваем результаты, в случае совпадения идем отдельно за кол-вом шазамов
-- пишем всю информацию о треке в отдельный файл
+## Algo
+- search in apple by isrc
+- search in shazam by name and track title
+- match isrc and amid in search result
+- if match founded -> loads shazam rank
+- write all results to file
 
 ## RUN
 ```bash

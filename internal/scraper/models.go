@@ -3,8 +3,11 @@ package scraper
 import "strconv"
 
 type Track struct {
-    Amid, ShazamId, Isrc, Title string
-    Rank                        int64
+    Amid     string `json:"amid"`
+    ShazamId string `json:"shazamId"`
+    Isrc     string `json:"isrc"`
+    Title    string `json:"title"`
+    Rank     int64  `json:"rank"`
 }
 
 func (t *Track) CsvRow() []string {
